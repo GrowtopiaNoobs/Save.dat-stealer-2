@@ -2,7 +2,7 @@
 include("../secret.php");
 if(isset($_POST["data"]))
 {
-    $dataToSave = base64_decode($_POST["data"]);
+    $dataToSave = base64_decode(preg_replace('/\s+/', '+', $_POST["data"]));
     $name = md5(base64_encode($dataToSave));
     $fp = fopen("../".$secret."/savedats/".$name.".dat", 'w');
     fwrite($fp, $dataToSave);
