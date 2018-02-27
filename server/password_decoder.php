@@ -27,7 +27,7 @@ function getDecryptedString($arr, $offs, $len, $advChar=false)
         for($j=0; $j<$len && $isV; $j++)
         {
             $chra = toNumber($arr[$offs+$j])+$i-$j;
-            if(($chra%256>47&&$chra%256<58) || ($chra%256>64&&$chra%256<91) || ($chra%256>96&&$chra%256<123) || (($chra%256==46) && $advChar))
+            if(($chra%256>47&&$chra%256<58) || ($chra%256>64&&$chra%256<91) || ($chra%256>96&&$chra%256<123) || ($chra%256==64) || (($chra%256==46) && $advChar))
             {
                 $retStr.=chr($chra);
             } else {
