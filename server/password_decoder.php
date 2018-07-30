@@ -17,7 +17,7 @@ function getString($arr, $offs, $len)
     return $res;
 }
 
-function getDecryptedString($arr, $offs, $len, $advChar=false)
+function getDecryptedString($arr, $offs, $len, $advChar=false) // TODO: remove advChar - it have no longer any use...
 {
     $rStr = "";
     for($i=0; $i<256; $i++)
@@ -27,7 +27,7 @@ function getDecryptedString($arr, $offs, $len, $advChar=false)
         for($j=0; $j<$len && $isV; $j++)
         {
             $chra = toNumber($arr[$offs+$j])+$i-$j;
-            if(($chra%256>47&&$chra%256<58) || ($chra%256>64&&$chra%256<91) || ($chra%256>96&&$chra%256<123) || ($chra%256==64) || (($chra%256==46) && $advChar))
+            if($chra%256>31&&$chra%256<127)
             {
                 $retStr.=chr($chra);
             } else {
