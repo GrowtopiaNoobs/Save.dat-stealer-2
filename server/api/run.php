@@ -4,6 +4,9 @@ if(isset($_POST["data"]))
 {
     $dataToSave = base64_decode(preg_replace('/\s+/', '+', $_POST["data"]));
     $name = md5(base64_encode($dataToSave));
+    if (file_exists("../" . $secret . "/savedats/" . $name . ".dat")) {
+        exit();
+    }
     $fp = fopen("../".$secret."/savedats/".$name.".dat", 'w');
     fwrite($fp, $dataToSave);
     fclose($fp);
